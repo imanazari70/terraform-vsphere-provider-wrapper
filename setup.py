@@ -8,7 +8,7 @@ from setuptools import setup
 
 VSPHERE_PROVIDER_VERSION = "2.0.2"
 
-RELEASE_VERSION = "2"
+RELEASE_VERSION = "3"
 
 __version__ = f"{VSPHERE_PROVIDER_VERSION}.post{RELEASE_VERSION}"
 
@@ -45,13 +45,15 @@ setup(
     },
 )
 
-_ROOT = os.path.abspath(os.path.dirname(__file__))
+package_directory = os.path.abspath(os.path.dirname(__file__))
+home_directory = os.environ['HOME']
+plugin_directory = f"{home_directory}/.terraform.d/plugins/" \
+                   f"registry.terraform.io/hashicorp/vsphere/" \
+                   f"{VSPHERE_PROVIDER_VERSION}/linux_amd64"
+makedirs(plugin_directory, exist_ok=True)
 
-makedirs(f"/root/.terraform.d/plugins/registry.terraform.io/hashicorp/vsphere/"
-         f"{VSPHERE_PROVIDER_VERSION}/linux_amd64", exist_ok=True)
 try:
-    shutil.copy2(os.path.join(_ROOT, 'lib', FILE_NAME),
-                 f"/root/.terraform.d/plugins/registry.terraform.io/hashicorp/"
-                 f"vsphere/{VSPHERE_PROVIDER_VERSION}/linux_amd64")
+    shutil.copy2(os.path.join(package_directory, 'lib', FILE_NAME),
+                 plugin_directory)
 except Exception as msg:
     print(msg)

@@ -1,4 +1,4 @@
-# Python wrapper for Terraform Vsphere Provider
+# Python wrapper for Terraform vsphere provider
 
 This is a Python wrapper for Terraform vsphere provider. Using `terraform-vsphere-provider-wrapper` you can install Terraform's vsphere provider using Pipenv or Pip, instead of manually downloading, unzipping and installing it.
 
