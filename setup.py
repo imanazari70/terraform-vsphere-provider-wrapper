@@ -31,11 +31,7 @@ setup(
     author_email="azari@mahsan.co",
     url="https://github.com/imanazari70/terraform-vsphere-provider-wrapper",
     py_modules=["terraform_vsphere_provider_wrapper"],
-    data_files=[
-        (f"/root/.terraform.d/plugins/registry.terraform.io/hashicorp"
-         f"/vsphere/{VSPHERE_PROVIDER_VERSION}/linux_amd64",
-         [f"lib/{FILE_NAME}"]),
-    ],
+    data_files=[("lib", [f"lib/{FILE_NAME}"]), ],
     cmdclass={'bdist_wheel': bdist_wheel},
     entry_points={
         "console_scripts": [
