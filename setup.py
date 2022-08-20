@@ -8,7 +8,7 @@ from setuptools import setup
 
 VSPHERE_PROVIDER_VERSION = "2.0.2"
 
-RELEASE_VERSION = "4"
+RELEASE_VERSION = "5"
 
 __version__ = f"{VSPHERE_PROVIDER_VERSION}.post{RELEASE_VERSION}"
 
